@@ -32,6 +32,7 @@ class TestSettings(unittest.TestCase):
         addon.settings['showfanart'] = True
         addon.settings['showoneoff'] = True
         addon.settings['showyoutube'] = True
+        addon.settings['showtubed'] = True
         addon.settings['usedrm'] = True
         addon.settings['usefavorites'] = True
         addon.settings['usehttpcaching'] = True
@@ -87,6 +88,12 @@ class TestSettings(unittest.TestCase):
     def test_youtube_disabled():
         """Test with showyoutube disabled"""
         addon.settings['showyoutube'] = False
+        plugin.run(['plugin://plugin.video.vrt.nu/channels/radio1', '0', ''])
+
+    @staticmethod
+    def test_tubed_disabled():
+        """Test with showtubed disabled"""
+        addon.settings['showtubed'] = False
         plugin.run(['plugin://plugin.video.vrt.nu/channels/radio1', '0', ''])
 
     @staticmethod
